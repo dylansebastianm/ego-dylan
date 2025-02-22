@@ -1,71 +1,81 @@
-.carrouselContainer {
-    position: relative;
-    width: 100%;
-    height: 410px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    background-color: #F7F7F7;
-}
+    .carrouselContainer {
+        position: relative;
+        padding: 43px 0;
+        height: 410px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        background-color: #F7F7F7;
+        margin: 0 -9.3125rem;
+    }
 
-.carouselViewport {
-    overflow: hidden;
-    width: 100%;
-}
+    .carouselViewport {
+        overflow: hidden;
+        width: 111%;
+    }
 
-.cardsContainer {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+    .cardsContainer {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
 
-.cardWrapper {
-    flex-shrink: 0;
-    width: 292px; /* Ancho fijo */
-}
+    .cardWrapper {
+        flex-shrink: 0;
+        width: 292px;
+    }
 
-.faded {
-    filter: grayscale(100%) opacity(0.5);
-}
+    .faded {
+        filter: grayscale(100%) opacity(0.5);
+    }
 
-.arrow {
-    position: absolute;
-    top: 30%;
-    width: 45px;
-    height: 146px;
-    z-index: 1000;
-    transform: translateY(-50%);
-    background: #FFFFFF8F;
-    border: none;
-    cursor: pointer;
-}
+    .firstCard {
+        filter: grayscale(100%) opacity(0.5);
+    }
 
-.left {
-    left: 0;
-}
+    .arrow {
+        position: absolute;
+        top: 30%;
+        width: 45px;
+        height: 146px;
+        z-index: 1000;
+        transform: translateY(-50%);
+        background: #FFFFFF8F;
+        border: none;
+        cursor: pointer;
+    }
 
-.right {
-    right: 0;
-}
+    .left {
+        left: 0;
+    }
 
-/* PAGINACIÓN */
-.pagination {
-    display: flex;
-    gap: 8px;
-    margin-top: 12px;
-}
+    .right {
+        right: 0;
+    }
 
-.pageDot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #C5C5C5;
-}
+    /* PAGINACIÓN */
+    .pagination {
+        display: flex;
+        gap: 8px;
+        margin-top: 38px;
+    }
 
-.activePage {
-    width: 39px;
-    height: 8px;
-    border-radius: 4px;
-    background-color: #4A4A4A;
-    opacity: 0.5;
-}
+    .pageDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #C5C5C5;
+    }
+
+    .activePage {
+        width: 39px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: #4A4A4A;
+        opacity: 0.5;
+    }
+
+    .cardWrapper {
+        flex-shrink: 1;
+        /* Por defecto, todas las cartas pueden reducirse */
+    }

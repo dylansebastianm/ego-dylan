@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.scss";
 
 interface DropdawnFilterProps {
+    options: string[];
     selectedOption: string;
     onSelect: (option: string) => void;
 }
 
-const options = ["Nada", "De menor a mayor precio", "De mayor a menor precio", "Más nuevos primero", "Más viejos primero"];
+const DropdawnFilter: React.FC<DropdawnFilterProps> = ({ options, selectedOption, onSelect }) => {
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    const [position, setPosition] = useState<"left" | "right">("right");
 
-const DropdawnFilter: React.FC<DropdawnFilterProps> = ({ selectedOption, onSelect }) => {
+    useEffect(() => {
+        if (dropdownRef.current) {
+            const rect = dropdownRef.current.getBoundingClientRect();
+            const isOverflowingLeft = rect.left < 0;
+
+            setPosition(isOverflowingLeft ? "left" : "right");
+        }
+    }, []);
+
     return (
-        <div className={styles.dropdawn}>
-            {options.map((option) => (
+        <div
+            ref={dropdownRef}
+            className={`${styles.dropdawn} ${position === "left" ? styles.left : styles.right}`}
+        >
+            {options.map((option, index) => (
                 <div
                     key={option}
-                    className={`${styles.optionContainer} ${selectedOption === option ? styles.active : ""}`}
+                    className={`${styles.optionContainer} ${selectedOption === option ? styles.active : ""} ${index === 0 ? styles.firstOption : ""
+                        }`}
                     onClick={() => onSelect(option)}
                 >
                     <span className={styles.option}>

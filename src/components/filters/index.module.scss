@@ -64,8 +64,9 @@
     align-items: center;
 
 }
+
 .sortWrapper {
-    position: relative; 
+    position: relative;
 }
 
 .arrowIcon {
@@ -74,4 +75,10 @@
 
 .arrowIcon.rotate {
     transform: rotate(180deg);
+}
+
+@media (max-width: 1200px) {
+    .filterByOptions {
+        display: none;
+    }
 }

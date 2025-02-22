@@ -1,7 +1,6 @@
 .dropdawn {
     position: absolute;
-    top: 100%; // Se coloca justo debajo de SortBy
-    right: 0;
+    top: 100%;
     width: 10.625rem;
     margin-top: 0.5rem;
     height: auto;
@@ -13,13 +12,23 @@
     flex-direction: column;
 }
 
+.right {
+    right: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.firstOption {
+    background-color: rgba(209, 214, 214, 0.2039215686);;
+}
 
 .option {
     font-weight: 400;
     font-size: 10px;
     line-height: 35px;
     letter-spacing: -0.1px;
-
 }
 
 .optionContainer {
@@ -33,6 +42,3 @@
     padding: 0 1rem;
 }
 
-.optionContainer.active {
-    background-color: #D1D6D634;
-}

@@ -8,7 +8,7 @@
     box-shadow: -0.25rem 0 0.625rem rgba(0, 0, 0, 0.1);
     transform: translateX(100%);
     animation: slideIn 0.3s ease-out forwards;
-    z-index: 1000;
+    z-index: 2000;
     padding: 0;
 }
 
@@ -16,6 +16,7 @@
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -23,7 +24,7 @@
 
 .optionsWrapper {
     background-color: white;
-    padding: 2rem 2rem 0 2rem;
+    padding: 39px 53px 0 32px;
     display: flex;
     flex-direction: column;
     gap: 2rem; // Agregamos el espacio entre optionContainer y line
@@ -31,7 +32,7 @@
 
 .lastOptionWrapper {
     background-color: #efeeef;
-    padding: 2rem;
+    padding-right: 53px;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     margin-top: 2rem; // Separamos el bloque gris del último optionContainer
@@ -65,8 +66,9 @@
 }
 
 .closeButton {
+    background-color: white;
     width: 100%;
-    margin-bottom: 0.43rem;
+    padding-right: 27px;
     display: flex;
     padding-top: 1.12rem;
     justify-content: flex-end;
@@ -81,4 +83,3 @@
     line-height: 1.07rem;
     letter-spacing: 0rem;
 }
-    
