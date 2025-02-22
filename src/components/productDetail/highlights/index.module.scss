@@ -1,0 +1,54 @@
+.highlightContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    gap: 99px;
+    margin-bottom: 55px;
+
+}
+
+.reversed {
+    flex-direction: row-reverse;
+}
+
+/* Alterna el padding en elementos impares y pares */
+.leftPadding {
+    padding-left: 77px;
+}
+
+.rightPadding {
+    padding-right: 77px;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 13.59px;
+}
+
+.imageContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: -0.4px;
+    color: #373737;
+}
+
+.content {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.1px;
+    color: #373737;
+}

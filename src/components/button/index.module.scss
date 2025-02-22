@@ -1,0 +1,22 @@
+.container {
+    width: 9.5rem;
+    height: 2.125rem;
+    border-radius: 2.5rem;
+    background-color: #191919;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    // font-family: ToyotaType;
+    font-size: 13px;
+    line-height: 23px;
+    letter-spacing: 0.07px;
+    text-align: center;
+
+}

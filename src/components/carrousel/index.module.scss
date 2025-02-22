@@ -1,0 +1,71 @@
+.carrouselContainer {
+    position: relative;
+    width: 100%;
+    height: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    background-color: #F7F7F7;
+}
+
+.carouselViewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.cardsContainer {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cardWrapper {
+    flex-shrink: 0;
+    width: 292px; /* Ancho fijo */
+}
+
+.faded {
+    filter: grayscale(100%) opacity(0.5);
+}
+
+.arrow {
+    position: absolute;
+    top: 30%;
+    width: 45px;
+    height: 146px;
+    z-index: 1000;
+    transform: translateY(-50%);
+    background: #FFFFFF8F;
+    border: none;
+    cursor: pointer;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+/* PAGINACIÓN */
+.pagination {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.pageDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #C5C5C5;
+}
+
+.activePage {
+    width: 39px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #4A4A4A;
+    opacity: 0.5;
+}

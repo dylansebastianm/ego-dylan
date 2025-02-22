@@ -1,0 +1,25 @@
+.title {
+    // font-family: Montserrat;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: -0.4px;
+    color: #373737;
+}
+
+.description {
+    // font-family: Montserrat;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.1px;
+    color: #373737;
+}
+
+.card {
+    height: 100%;
+    width: 268px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}

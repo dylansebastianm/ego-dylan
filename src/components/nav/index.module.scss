@@ -1,0 +1,65 @@
+.container {
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.sectionContainer {
+    display: flex;
+    gap: 4.54rem;
+    height: 100%;
+    margin-left: 4.81rem;
+}
+
+.option {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17.07px;
+    letter-spacing: 0px;
+    color: #191919;
+    position: relative;
+}
+
+.option.active {
+    color: #EB0A1E;
+}
+
+.section {
+    height: 100%;
+    display: flex;
+    min-width: 126.08px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.section.active::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: #D0021B;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.menuContainer {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.logoOptions {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menuIcon{
+    cursor: pointer;
+}
