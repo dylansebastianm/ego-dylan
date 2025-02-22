@@ -14,17 +14,15 @@ interface CarrouselProps {
     }[];
 }
 
-const CARD_WIDTH = 292; // Ancho fijo de la carta
-const MIN_CARDS = 10; // Mínimo de cartas a mostrar
+const CARD_WIDTH = 292;
+const MIN_CARDS = 10;
 
 const Carrousel: React.FC<CarrouselProps> = ({ features }) => {
-    // Rellenar con datos duplicados si hay menos de 10
     const filledFeatures = [...features];
     while (filledFeatures.length < MIN_CARDS) {
         filledFeatures.push(...features);
     }
 
-    // Para hacer el carrusel infinito duplicamos los elementos
     const infiniteFeatures = [...filledFeatures, ...filledFeatures];
 
     const totalSlides = infiniteFeatures.length;
@@ -32,7 +30,10 @@ const Carrousel: React.FC<CarrouselProps> = ({ features }) => {
     const [visibleCount, setVisibleCount] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
-    const [delayedIndex, setDelayedIndex] = useState(0); // Índice con retraso
+    const [delayedIndex, setDelayedIndex] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
     const totalPages = Math.ceil(filledFeatures.length / visibleCount);
 
     useEffect(() => {
@@ -41,6 +42,7 @@ const Carrousel: React.FC<CarrouselProps> = ({ features }) => {
                 const containerWidth = carouselContainerRef.current.offsetWidth;
                 const count = Math.floor(containerWidth / CARD_WIDTH);
                 setVisibleCount(count > 0 ? count : 1);
+                setIsMobile(window.innerWidth < 900);
             }
         };
 
@@ -62,7 +64,6 @@ const Carrousel: React.FC<CarrouselProps> = ({ features }) => {
         setCurrentIndex((prevIndex) => prevIndex - 1);
     };
 
-    // Resetear el índice cuando alcanzamos los límites para efecto infinito
     useEffect(() => {
         if (currentIndex >= filledFeatures.length) {
             setTimeout(() => {
@@ -77,23 +78,49 @@ const Carrousel: React.FC<CarrouselProps> = ({ features }) => {
         }
     }, [currentIndex, filledFeatures.length]);
 
-    // **Aplica el efecto 1 segundo después de moverse**
     useEffect(() => {
         const timeout = setTimeout(() => {
             setDelayedIndex(currentIndex);
-        }, 500); // Espera 1 segundo antes de aplicar el efecto
+        }, 200);
 
         return () => clearTimeout(timeout);
     }, [currentIndex]);
 
+    const handleTouchStart = (e: React.TouchEvent) => {
+        if (!isMobile) return;
+        setIsDragging(true);
+        setStartX(e.touches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        if (!isDragging || !isMobile) return;
+        const diff = e.touches[0].clientX - startX;
+
+        if (diff > 50) {
+            prevSlide();
+            setIsDragging(false);
+        } else if (diff < -50) {
+            nextSlide();
+            setIsDragging(false);
+        }
+    };
+
+    const handleTouchEnd = () => {
+        setIsDragging(false);
+    };
+
     return (
-        <div className={styles.carrouselContainer} ref={carouselContainerRef}>
-            {/* Flecha Izquierda */}
+        <div
+            className={styles.carrouselContainer}
+            ref={carouselContainerRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             <button className={`${styles.arrow} ${styles.left}`} onClick={prevSlide}>
                 <Image src={Arrow} alt="Previous" width={12} height={21} style={{ transform: "rotate(180deg)" }} />
             </button>
 
-            {/* Carrusel */}
             <div className={styles.carouselViewport}>
                 <div
                     className={styles.cardsContainer}
@@ -104,7 +131,14 @@ const Carrousel: React.FC<CarrouselProps> = ({ features }) => {
                     }}
                 >
                     {infiniteFeatures.map((feature, index) => {
-                        const trimmedName = feature.name.split(" ").slice(0, 4).join(" "); // Tomar solo las primeras 4 palabras
+                        const words = feature.name.split(" ");
+                        let trimmedName = words.slice(0, 3).join(" ");
+
+                        if (words[3] && words[3].length > 3) {
+                            trimmedName += " " + words[3];
+                        } else if (words[4]) {
+                            trimmedName += " " + words[4];
+                        }
 
                         return (
                             <div
@@ -116,7 +150,6 @@ const Carrousel: React.FC<CarrouselProps> = ({ features }) => {
                             </div>
                         );
                     })}
-
                 </div>
             </div>
 
