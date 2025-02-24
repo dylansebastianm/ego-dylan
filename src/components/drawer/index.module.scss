@@ -2,17 +2,23 @@
 @import '../../styles/mixins';
 
 .drawer {
-    width: 100%;
+    width: 27rem; // En desktop
     height: 100vh;
     background-color: $light-gray;
-    position: fixed;
-    top: 70px; 
-    left: 0;
+    top: 0;
+    right: 0;
+    position: fixed; 
     transform: translateX(100%);
-    z-index: 2000;
+    z-index: 3000; 
+
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 900px) {
+        width: 100%; 
+        z-index: 1000; 
+    }
 }
 
 .slideIn {

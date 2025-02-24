@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import Nav from "../nav";
 import Footer from "../footer";
@@ -14,17 +14,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     return (
-        <div className={`${styles.layout} ${isDrawerOpen ? styles.drawerOpen : ""}`}>
+        <div className={styles.layout}>
             <Nav onMenuClick={() => setIsDrawerOpen(true)} />
-            
-            {isDrawerOpen ? (
-                <Drawer sections={SECTIONS} onClose={() => setIsDrawerOpen(false)} />
-            ) : (
-                <main className={styles.main}>
-                    <div className={styles.contentContainer}>{children}</div>
-                    <Footer />
-                </main>
-            )}
+            {isDrawerOpen && <Drawer sections={SECTIONS} onClose={() => setIsDrawerOpen(false)} />}
+            <main className={styles.main}>
+                <div className={styles.contentContainer}>{children}</div> 
+            </main>
+            <Footer />
         </div>
     );
 };
