@@ -1,82 +1,78 @@
-    .container {
-        width: 100%;
-        height: 70px;
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 2rem;
-        border-bottom: 1px solid #CCCCCC;
-    }
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
-    .sectionContainer {
-        display: flex;
-        gap: 4.54rem;
-        height: 100%;
-        margin-left: 4.81rem;
-    }
+.container {
+    width: 100%;
+    height: 70px;
+    @include flex-center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 1px solid $light-border;
+}
 
-    .option {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17.07px;
-        letter-spacing: 0px;
-        color: #191919;
-        position: relative;
-    }
+.sectionContainer {
+    display: flex;
+    gap: 4.54rem;
+    height: 100%;
+    margin-left: 4.81rem;
+}
 
-    .option.active {
-        color: #EB0A1E;
-    }
+.option {
+    @include font-styles(14px, 17.07px, 0px, 600, $primary-black);
+    position: relative;
+}
 
-    .section {
-        height: 100%;
-        display: flex;
-        min-width: 126.08px;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-    }
+.option.active {
+    color: $primary-red;
+}
 
-    .section.active::after {
-        content: "";
-        width: 100%;
-        height: 4px;
-        background-color: #D0021B;
-        position: absolute;
-        bottom: 0;
-        left: 0;
+.section {
+    height: 100%;
+    display: flex;
+    min-width: 126.08px;
+    @include flex-center;
+    position: relative;
+    cursor: pointer;
+}
+
+.section.active::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: $primary-red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.menuContainer {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.logoOptions {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menuIcon {
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .sectionContainer,
+    .menu {
+        display: none;
     }
 
     .menuContainer {
         display: flex;
-        gap: 0.75rem;
+        align-items: center;
     }
 
     .logoOptions {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 100%;
+        justify-content: space-between;
     }
-
-    .menuIcon {
-        cursor: pointer;
-    }
-
-    @media (max-width: 900px) {
-
-        .sectionContainer,
-        .menu {
-            display: none;
-        }
-
-        .menuContainer {
-            display: flex;
-            align-items: center;
-        }
-
-        .logoOptions {
-            justify-content: space-between;
-        }
-    }
+}

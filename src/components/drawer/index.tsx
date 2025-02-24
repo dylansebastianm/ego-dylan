@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.module.scss";
 import Image from "next/image";
 import CloseIcon from "../../../public/assets/buttons/Close.svg";
@@ -25,14 +25,24 @@ const OptionContainer: React.FC<{ options: string[] }> = ({ options }) => (
 );
 
 const Drawer: React.FC<DrawerProps> = ({ sections, onClose }) => {
+    const [isClosing, setIsClosing] = useState(false);
+
+    const handleClose = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            onClose();
+            setIsClosing(false);
+        }, 300);
+    };
+
     return (
-        <div className={styles.drawer}>
-            <CloseButton onClose={onClose} />
+        <div className={`${styles.drawer} ${isClosing ? styles.slideOut : styles.slideIn}`}>
+            <CloseButton onClose={handleClose} />
             <div className={styles.optionsWrapper}>
                 {sections.slice(0, -1).map((options, index) => (
                     <React.Fragment key={index}>
                         <OptionContainer options={options} />
-                        <div className={styles.line} />
+                        <div className={`${styles.line} ${index === sections.length - 2 ? styles.last : ""}`} />
                     </React.Fragment>
                 ))}
             </div>

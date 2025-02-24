@@ -103,14 +103,6 @@ $description-mobile: 0.75rem;
     }
 }
 
-@media (max-width: 900px) {
-    .information,
-    .name {
-        padding-left: $container-padding;
-        padding-right: $container-padding;
-    }
-}
-
 @media (max-width: 768px) {
     .title {
         font-size: $title-small;
