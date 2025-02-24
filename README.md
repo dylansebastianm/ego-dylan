@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Inicialización del Proyecto
 
-## Getting Started
+Este proyecto está desarrollado con **Next.js**, utilizando **TypeScript** y **SCSS** para el manejo de estilos.
 
-First, run the development server:
+## Instalación de dependencias
+Para instalar todas las dependencias necesarias, ejecutar el siguiente comando en la terminal:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Ejecución del entorno de desarrollo
+Para iniciar el servidor de desarrollo, ejecutar:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Esto iniciará la aplicación en modo desarrollo, generalmente disponible en `http://localhost:3000/`.
 
-## Learn More
+## Estructura del Proyecto
+El proyecto está organizado en los siguientes directorios principales:
 
-To learn more about Next.js, take a look at the following resources:
+- **app/**: Contiene las páginas principales y sus respectivas rutas, incluyendo subdirectorios para páginas dinámicas como `product/[id]`.
+  - `product/[id]/`: Maneja la vista de productos individuales, con archivos como `page.tsx.
+  - `utils/`: Contiene funciones auxiliares y archivos de estilos específicos.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **components/**: Contiene los componentes reutilizables del proyecto, organizados en carpetas por funcionalidad, como:
+  - `button/`, `card/`, `carrousel/`, `drawer/`, etc.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **containers/home/**: Contiene contenedores específicos para la página principal, organizados en:
+  - `constants/`: Define constantes utilizadas en la interfaz.
+  - `utils/`: Contiene funciones auxiliares.
 
-## Deploy on Vercel
+- **styles/**: Contiene archivos de estilos globales y módulos SCSS.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
