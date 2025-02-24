@@ -1,3 +1,6 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .dropdawn {
     position: absolute;
     top: 100%;
@@ -21,7 +24,7 @@
 }
 
 .firstOption {
-    background-color: rgba(209, 214, 214, 0.2039215686);;
+    background-color: $light-gray-bg;
 }
 
 .option {
@@ -37,8 +40,7 @@
     display: flex;
     cursor: pointer;
     align-items: center;
-    border-bottom: 1px solid #D8D8D8;
+    border-bottom: 1px solid $light-border;
     justify-content: flex-start;
     padding: 0 1rem;
 }
-

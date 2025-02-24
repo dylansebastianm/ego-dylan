@@ -1,10 +1,13 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .drawer {
     width: 24.37rem;
     height: 100%;
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #efeeef;
+    background-color: $light-gray;
     box-shadow: -0.25rem 0 0.625rem rgba(0, 0, 0, 0.1);
     transform: translateX(100%);
     animation: slideIn 0.3s ease-out forwards;
@@ -27,15 +30,15 @@
     padding: 39px 53px 0 32px;
     display: flex;
     flex-direction: column;
-    gap: 2rem; // Agregamos el espacio entre optionContainer y line
+    gap: 2rem;
 }
 
 .lastOptionWrapper {
-    background-color: #efeeef;
+    background-color: $light-gray;
     padding-right: 53px;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    margin-top: 2rem; // Separamos el bloque gris del último optionContainer
+    margin-top: 2rem;
 }
 
 .sections {
@@ -54,7 +57,7 @@
 .line {
     width: 100%;
     height: 0.0625rem;
-    background-color: #e9e9e9;
+    background-color: $secondary-gray;
 }
 
 .option {

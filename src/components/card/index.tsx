@@ -57,7 +57,7 @@ const Thumbnail: React.FC<{ src: string; alt: string; isLargeImage: boolean }> =
             alt={alt}
             width={200}
             height={132}
-            className={`${styles.thumbnail} ${isLargeImage ? styles.largeImage : ''}`}  // Aplicamos la clase condicional
+            className={`${styles.thumbnail} ${isLargeImage ? styles.largeImage : ''}`} 
         />
     );
 };

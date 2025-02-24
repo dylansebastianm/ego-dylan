@@ -1,17 +1,21 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+$product-image-width: 43.75rem;
+$product-image-border-radius: 0.625rem;
+$product-max-width: 37.5rem;
+$product-max-height-img: 30rem;
+$product-detail-gap-mobile: 2.5rem;
 $gap-large: 7.375rem;
 $gap-medium: 2.3125rem;
 $gap-small: 1.5rem;
-
 $title-large: 3.125rem;
 $title-medium: 2.25rem;
 $title-small: 1.75rem;
 $title-mobile: 1.5rem;
-
 $description-font: 1rem;
 $description-small: 0.875rem;
 $description-mobile: 0.75rem;
-
-$container-padding: 2rem;
 
 .productDetail {
     display: flex;
@@ -20,12 +24,12 @@ $container-padding: 2rem;
 }
 
 .imageContainer {
-    width: 43.75rem;
+    width: $product-image-width;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 0.625rem;
+    border-radius: $product-image-border-radius;
 
     img {
         width: 100%;
@@ -44,7 +48,7 @@ $container-padding: 2rem;
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 1.6875rem;
-    color: #373737;
+    color: $primary-gray;
     margin-bottom: 0.5rem;
 }
 
@@ -53,7 +57,7 @@ $container-padding: 2rem;
     font-size: $title-large;
     line-height: 3.5625rem;
     letter-spacing: -0.0625rem;
-    color: #373737;
+    color: $primary-gray;
 }
 
 .description {
@@ -61,8 +65,8 @@ $container-padding: 2rem;
     font-size: $description-font;
     line-height: 1.6875rem;
     letter-spacing: -0.00625rem;
-    color: #555;
-    max-width: 37.5rem;
+    color: $primary-gray;
+    max-width: $product-max-width;
 }
 
 .information {
@@ -75,7 +79,7 @@ $container-padding: 2rem;
 @media (max-width: 1024px) {
     .productDetail {
         flex-direction: column;
-        gap: 2.5rem;
+        gap: $product-detail-gap-mobile;
     }
 
     .imageContainer {
@@ -84,7 +88,7 @@ $container-padding: 2rem;
 
         img {
             max-width: 100%;
-            max-height: 30rem;
+            max-height: $product-max-height-img;
         }
     }
 
@@ -130,4 +134,3 @@ $container-padding: 2rem;
         line-height: 1.25rem;
     }
 }
-    

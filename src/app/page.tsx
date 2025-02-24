@@ -7,6 +7,7 @@ import ProductList from "@/components/productList";
 import { fetchCars } from "@/containers/home/utils/fetchsHome";
 import { Car } from "@/components/card/types";
 
+
 const Home: React.FC = () => {
     const [cars, setCars] = useState<Car[]>([]);
     const [filterData, setFilterData] = useState({

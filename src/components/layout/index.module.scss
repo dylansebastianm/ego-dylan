@@ -1,23 +1,23 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+
+
 .layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .main {
-  flex: 1;
+    flex: 1;
 }
 
 .contentContainer {
-  padding-top: 5.3125rem;
-  padding-bottom: 5.3125rem;
-  padding-left: 9.3125rem;
-  padding-right: 9.3125rem;
-}
+    padding: 5.3125rem $container-padding;
 
-@media (max-width: 900px) {
-  .contentContainer {
-    padding-left: 0.93rem;
-    padding-right: 0.93rem;
-  }
+    @media (max-width: 900px) {
+        padding-left: $container-padding-mobile;
+        padding-right: $container-padding-mobile;
+    }
 }
